@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dot-hex-production-tls
+  namespace: kube-system
+  annotations:
+    cert-manager.io/alt-names: '*.dot-hex.xyz,dot-hex.xyz'
+    cert-manager.io/certificate-name: dot-hex-com-production
+    cert-manager.io/common-name: dot-hex.xyz
+    cert-manager.io/ip-sans: ""
+    cert-manager.io/issuer-group: ""
+    cert-manager.io/issuer-kind: ClusterIssuer
+    cert-manager.io/issuer-name: letsencrypt-production
+    cert-manager.io/uri-sans: ""
+  labels:
+    controller.cert-manager.io/fao: "true"
+type: kubernetes.io/tls
+data:
+  tls.crt: op://kubernetes/dot-hex-production-tls/tls.crt
+  tls.key: op://kubernetes/dot-hex-production-tls/tls.key
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: onepassword-connect-secret
+  namespace: external-secrets
+stringData:
+  1password-credentials.json: op://kubernetes/1password/credentials
+  token: op://kubernetes/1password/token
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cert-manager-secret
+  namespace: cert-manager
+type: Opaque
+stringData:
+  api_key: op://kubernetes/cloudflare/api_key

@@ -110,6 +110,28 @@ function apply_crds() {
     done
 }
 
+# Resources to be applied before the helmfile charts are installed
+function apply_resources() {
+    log debug "Applying resources"
+
+    local -r resources_file="${ROOT_DIR}/bootstrap/resources.yaml.j2"
+
+    if ! output=$(render_template "${resources_file}") || [[ -z "${output}" ]]; then
+        exit 1
+    fi
+
+    if echo "${output}" | kubectl diff --filename - &>/dev/null; then
+        log info "Resources are up-to-date"
+        return
+    fi
+
+    if echo "${output}" | kubectl apply --server-side --filename - &>/dev/null; then
+        log info "Resources applied"
+    else
+        log error "Failed to apply resources"
+    fi
+}
+
 # Sync Helm releases
 function sync_helm_releases() {
     log debug "Syncing Helm releases"
