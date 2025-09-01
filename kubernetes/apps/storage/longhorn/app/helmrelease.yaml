@@ -1,0 +1,45 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: longhorn
+  namespace:
+spec:
+  chart:
+    spec:
+      chart: longhorn
+      version: 1.6.1
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: HelmRepository
+        name: longhorn
+        namespace: flux-system
+  interval: 30m0s
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    defaultSettings:
+      backupstorePollInterval: 0
+      concurrentAutomaticEngineUpgradePerNodeLimit: 3
+      defaultDataPath: /var/lib/rancher/k3s/longhorn
+      defaultLonghornStaticStorageClass: longhorn
+      defaultReplicaCount: 3
+      guaranteedEngineManagerCPU: 20
+      guaranteedReplicaManagerCPU: 20
+      nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
+      orphanAutoDeletion: true
+      restoreVolumeRecurringJobs: true
+      storageMinimalAvailablePercentage: 10
+      storageOverProvisioningPercentage: 200
+    ingress:
+      enabled: true
+      ingressClassName: internal
+      host: longhorn.dot-hex.xyz
+      tls: false
