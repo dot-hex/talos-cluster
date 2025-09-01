@@ -52,5 +52,5 @@ spec:
     ingress:
       enabled: true
       ingressClassName: internal
-      host: longhorn.dot-hex.xyz
+      host: longhorn2.dot-hex.xyz
       tls: false
