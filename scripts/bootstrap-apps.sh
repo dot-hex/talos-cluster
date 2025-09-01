@@ -117,6 +117,7 @@ function apply_resources() {
     local -r resources_file="${ROOT_DIR}/bootstrap/resources.yaml.j2"
 
     if ! output=$(render_template "${resources_file}") || [[ -z "${output}" ]]; then
+        log error "Failed to render template"
         exit 1
     fi
 
@@ -158,6 +159,7 @@ function main() {
     apply_namespaces
     apply_sops_secrets
     apply_crds
+    apply_resources
     sync_helm_releases
 
     log info "Congrats! The cluster is bootstrapped and Flux is syncing the Git repository"
