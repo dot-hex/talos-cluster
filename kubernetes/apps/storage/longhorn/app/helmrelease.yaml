@@ -47,18 +47,3 @@ spec:
       restoreVolumeRecurringJobs: true
       storageMinimalAvailablePercentage: 10
       storageOverProvisioningPercentage: 200
-    route:
-      main:
-        enabled: true
-        host:
-          name: longhorn2.dot-hex.xyz
-          path: /
-          pathType: PathPrefix
-        parentRefs:
-          - name: internal
-            namespace: kube-system
-            sectionName: https
-        rules:
-        - backendRefs:
-          - name: longhorn-frontend
-            port: 80
