@@ -7,7 +7,7 @@ spec:
   - name: internal
     namespace: kube-system
     sectionName: https
-  hostnames: ["longhorn.${SECRET_DOMAIN}"]
+  hostnames: longhorn.dot-hex.xyz
   rules:
   - backendRefs:
     - name: longhorn-frontend
