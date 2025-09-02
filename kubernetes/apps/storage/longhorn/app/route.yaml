@@ -8,7 +8,7 @@ spec:
     namespace: kube-system
     sectionName: https
   hostnames:
-  - longhorn.${PRIVATE_DOMAIN}
+  - ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
   rules:
   - backendRefs:
     - name: longhorn-frontend
