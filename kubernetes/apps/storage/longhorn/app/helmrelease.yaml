@@ -47,8 +47,12 @@ spec:
       restoreVolumeRecurringJobs: true
       storageMinimalAvailablePercentage: 10
       storageOverProvisioningPercentage: 200
-    ingress:
-      enabled: true
-      ingressClassName: internal
-      host: longhorn2.dot-hex.xyz
-      tls: false
+    route:
+      main:
+        enabled: true
+        hostnames:
+          - "longhorn-2.dot-hex.xyz"
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: https
