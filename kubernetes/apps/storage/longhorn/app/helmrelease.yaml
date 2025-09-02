@@ -50,8 +50,10 @@ spec:
     route:
       main:
         enabled: true
-        hostnames:
-          - "longhorn-2.dot-hex.xyz"
+        host:
+          name: longhorn2.dot-hex.xyz
+          path: /
+          pathType: PathPrefix
         parentRefs:
           - name: internal
             namespace: kube-system
