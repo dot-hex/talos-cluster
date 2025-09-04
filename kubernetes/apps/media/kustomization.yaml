@@ -3,5 +3,4 @@ kind: Kustomization
 components:
   - ../../components/common
 resources:
-  - ./namespace.yaml
   - ./tachidesk/ks.yaml
