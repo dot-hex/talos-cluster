@@ -8,8 +8,6 @@ _... managed with Flux, Renovate, and GitHub Actions_ 🤖
 
 </div>
 
-<div align="center">
-
 ## Hardware
 
 | Device                     | Count | OS Disk   | Data Disk  | Ram  | Operating System | Purpose                  |
