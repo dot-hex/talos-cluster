@@ -4,5 +4,4 @@ namespace: downloads
 components:
   - ../../components/common
 resources:
-  - ./namespace.yaml
   - ./flaresolverr/ks.yaml
