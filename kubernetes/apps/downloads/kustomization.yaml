@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./flaresolverr/ks.yaml
-  - ./ocirepository.yaml
