@@ -8,11 +8,16 @@ _... managed with Flux, Renovate, and GitHub Actions_ 🤖
 
 </div>
 
+## Overview
+
+This is a repository for my Talos homelab cluster, which is my new cluster
+
 ## Hardware
 
-| Device                     | Count | OS Disk   | Data Disk  | Ram  | Operating System | Purpose                  |
-|----------------------------|-------|-----------|------------|------|------------------|--------------------------|
-| Minisforum MS-01 i9-12900H | 1     | 256GB M.2 | 1.92TB U.2 | 64GB | Talos            | Kubernetes Control Plane |
+| Device                     | Count | OS Disk    | Data Disk   | Ram  | Operating System | Purpose                  |
+|----------------------------|-------|------------|-------------|------|------------------|--------------------------|
+| Minisforum MS-01 i9-12900H | 1     | 256GB M.2  | 1.92TB U.2  | 64GB | Talos            | Kubernetes Control Plane |
+| HP EliteDesk 800 G3 TWR    | 1     | 128GB SATA | 2x 14TB HDD | 16GB | TrueNAS          | Kubernetes Control Plane |
 
 
 Slowly migrating my hardware over to this cluster!
