@@ -26,6 +26,13 @@ releases:
     values: ['../kubernetes/apps/kube-system/coredns/app/helm/values.yaml']
     needs: ['kube-system/cilium']
 
+  - name: spegel
+    namespace: kube-system
+    atomic: true
+    chart: oci://ghcr.io/spegel-org/helm-charts/spegel
+    version: 0.3.0
+    values: ['../kubernetes/apps/kube-system/spegel/app/helm/values.yaml']
+    needs: ['kube-system/coredns']
 
   - name: cert-manager
     namespace: cert-manager
@@ -33,53 +40,7 @@ releases:
     chart: oci://quay.io/jetstack/charts/cert-manager
     version: v1.17.2
     values: ['../kubernetes/apps/cert-manager/cert-manager/app/helm/values.yaml']
-    needs: ['kube-system/coredns']
-
-  - name: onepassword-connect
-    namespace: external-secrets
-    atomic: true
-    chart: oci://ghcr.io/bjw-s-labs/helm/app-template
-    version: 4.1.2
-    values:
-      - "../kubernetes/apps/external-secrets/onepassword-connect/app/helm/values.yaml"
-    hooks:
-      - events:
-          - "postsync"
-        command: kubectl
-        args:
-          - apply
-          - --namespace=external-secrets
-          - --server-side
-          - --field-manager=kustomize-controller
-          - --filename
-          - ../kubernetes/apps/external-secrets/onepassword-connect/app/networkpolicy.yaml
-          - --wait=true
-        showlogs: true
-    needs:
-      - "cert-manager/cert-manager"
-
-  - name: external-secrets
-    namespace: external-secrets
-    atomic: true
-    chart: oci://ghcr.io/external-secrets/charts/external-secrets
-    version: 0.18.2
-    values:
-      - "../kubernetes/apps/external-secrets/external-secrets/app/helm/values.yaml"
-    hooks:
-      - events:
-          - "postsync"
-        command: kubectl
-        args:
-          - apply
-          - --namespace=external-secrets
-          - --server-side
-          - --field-manager=kustomize-controller
-          - --filename
-          - ../kubernetes/apps/external-secrets/external-secrets/app/clustersecretstore.yaml
-          - --wait=true
-        showlogs: true
-    needs:
-      - "external-secrets/onepassword-connect"
+    needs: ['kube-system/spegel']
 
   - name: flux-operator
     namespace: flux-system
