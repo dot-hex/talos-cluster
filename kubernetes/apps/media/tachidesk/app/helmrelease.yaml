@@ -38,6 +38,12 @@ spec:
               TZ: America/Los_Angeles
               FLARESOLVERR_ENABLED: true
               FLARESOLVERR_URL: http://flaresolverr.downloads.cluster.svc.local.
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                - ALL
+              readOnlyRootFileSystem: true
             probes:
               liveness:
                 custom: true
@@ -61,12 +67,6 @@ spec:
                   initialDelaySeconds: 20
                   periodSeconds: 10
                   timeoutSeconds: 1
-              securityContext:
-                allowPrivilegeEscalation: false
-                capabilities:
-                  drop:
-                  - ALL
-                readOnlyRootFileSystem: true
     defaultPodOptions:
           automountServiceAccountToken: false
           securityContext:
