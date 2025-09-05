@@ -6,7 +6,7 @@ spec:
   parentRefs:
   - name: internal
     namespace: kube-system
-    sectionName: http
+    sectionName: https
   hostnames:
   - longhorn.dot-hex.xyz
   rules:
