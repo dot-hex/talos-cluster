@@ -9,7 +9,7 @@ spec:
   url: https://charts.longhorn.io
   timeout: 3m
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: longhorn
