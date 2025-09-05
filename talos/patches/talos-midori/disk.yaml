@@ -1,0 +1,17 @@
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: longhorn
+provisioning:
+  diskSelector:
+    match: disk.dev_path == '/dev/disk/by-id/nvme-SAMSUNG_MZQLV1T9HCJM-000FB_S2W1NA0H700427'
+  minSize: 100GB
+filesystem:
+  type: ext4
+encryption:
+    provider: luks2 # Encryption provider to use for the encryption.
+    # Defines the encryption keys generation and storage method.
+    keys:
+        - slot: 0 # Key slot number for LUKS2 encryption.
+          # Key which value is stored in the configuration file.
+          static:
+            passphrase: exampleKey

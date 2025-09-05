@@ -76,6 +76,23 @@ nodes:
           - network: "0.0.0.0/0"
             gateway: "192.188.1.1"
         mtu: 1500
+  - hostname: "talos-kuro"
+    ipAddress: "192.188.1.249"
+    installDisk: "/dev/sda"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/831bcd3df93662159641b00d8b3bb96edc64b3911d507affe524e9c18a3a467f
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:d6:08:28"
+        dhcp: false
+        addresses:
+          - "192.188.1.249/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "192.188.1.1"
+        mtu: 1500
 
 # Global patches
 patches:
