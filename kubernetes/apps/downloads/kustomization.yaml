@@ -5,3 +5,4 @@ components:
   - ../../components/common
 resources:
   - ./flaresolverr/ks.yaml
+  - ./prowlarr/ks.yaml
