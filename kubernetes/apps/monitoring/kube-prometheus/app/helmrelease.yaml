@@ -1,0 +1,97 @@
+---
+# yaml-language-server: $schema=https://kube-schemas.pages.dev/source.toolkit.fluxcd.io/ocirepository_v1.json
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: kube-prometheus-stack
+spec:
+  interval: 5m
+  layerSelector:
+    mediaType: application/vnd.cncf.helm.chart.content.v1.tar+gzip
+    operation: copy
+  ref:
+    tag: 77.5.0
+  url: oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus
+  namespace: monitoring
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: kube-prometheus-stack
+  interval: 30m0s
+  install:
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    crds: CreateReplace
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    alertmanager:
+      enabled: true
+      route:
+        main:
+          enabled: true
+          hostnames:
+            - "alertmanager.dot-hex.xyz"
+          parentRefs:
+            - name: internal
+              namespace: kube-system
+              sectionName: https
+    grafana:
+      enabled: true
+      route:
+        main:
+          enabled: true
+          hostnames:
+            - "grafana.dot-hex.xyz"
+          parentRefs:
+            - name: internal
+              namespace: kube-system
+              sectionName: https
+    kubeStateMetrics:
+      enabled: true
+    kube-state-metrics:
+      fullnameOverride: kube-state-metrics
+      metricLabelsAllowlist:
+        - pods=[*]
+        - deployments=[*]
+        - persistentvolumeclaims=[*]
+      prometheus:
+        main:
+          enabled: true
+          hostnames:
+            - "prometheus.dot-hex.xyz"
+          parentRefs:
+            - name: internal
+              namespace: kube-system
+              sectionName: https
+        monitor:
+          enabled: true
+          relabelings:
+            - action: replace
+              regex: (.*)
+              replacement: $1
+              sourceLabels: ["__meta_kubernetes_pod_node_name"]
+              targetLabel: kubernetes_node
+    nodeExporter:
+      enabled: true
+    prometheus-node-exporter:
+      fullnameOverride: node-exporter
+      prometheus:
+        monitor:
+          enabled: true
+          relabelings:
+            - action: replace
+              regex: (.*)
+              replacement: $1
+              sourceLabels: ["__meta_kubernetes_pod_node_name"]
+              targetLabel: kubernetes_node
