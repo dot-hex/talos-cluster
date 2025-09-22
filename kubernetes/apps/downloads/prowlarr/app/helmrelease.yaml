@@ -35,7 +35,7 @@ spec:
           app:
             image:
               repository:  ghcr.io/home-operations/prowlarr
-              tag: 1.33.3
+              tag: 2.1.2
             env:
               PROWLARR__AUTHENTICATION_REQUIRED: DisabledForLocalAddresses
               PROWLARR__INSTANCE_NAME: Prowlarr
