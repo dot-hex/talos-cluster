@@ -1,0 +1,77 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: metube
+  namespace: media
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+  interval: 30m0s
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controllers:
+      metube:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: ghcr.io/alexta69/metube
+              tag: "2025-01-16"
+            env:
+              DOWNLOAD_DIR: "/downloads"
+              STATE_DIR: "/config"
+#TODO: Create image for this container that will allow rootless, similar to how onedr0p handles debian container
+            # securityContext:
+            #   allowPrivilegeEscalation: false
+            #   capabilities:
+            #     drop:
+            #     - ALL
+            #   runAsUser: 0
+   # defaultPodOptions:
+      #securityContext:
+        # runAsNonRoot: true
+        # runAsUser: 1000
+        # runAsGroup: 100
+        # fsGroup: 100
+        # fsGroupChangePolicy: OnRootMismatch
+        # seccompProfile: { type: RuntimeDefault }
+    service:
+      app:
+        controller: *app
+        ports:
+          http:
+            port: 8081
+    route:
+      app:
+        hostnames:
+          - "{{ .Release.Name }}.dot-hex.xyz"
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *port
+    persistence:
+      config:
+        existingClaim: *app
+      downloads:
+        enabled: true
+        path: /mnt/main/media
+        server: 192.188.1.200
+        type: nfs
+        globalMounts:
+        - path: /downloads
+          subPath: metube
