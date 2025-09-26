@@ -3,3 +3,6 @@ talosconfig
 kubernetes-talos-aoi.yaml
 kubernetes-talos-shiro.yaml
 kubernetes-talos-kuro.yaml
+kubernetes-midori.yaml
+kubernetes-shiro.yaml
+kubernetes-kuro.yaml

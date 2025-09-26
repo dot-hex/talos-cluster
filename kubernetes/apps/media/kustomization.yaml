@@ -5,3 +5,4 @@ components:
   - ../../components/common
 resources:
   - ./tachidesk/ks.yaml
+  - ./jellyfin/ks.yaml

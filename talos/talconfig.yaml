@@ -20,7 +20,7 @@ cniConfig:
   name: none
 
 nodes:
-  - hostname: "talos-midori"
+  - hostname: "midori"
     ipAddress: "192.188.1.246"
     installDiskSelector:
       serial: "IB25ZD0256P01163"
@@ -40,16 +40,37 @@ nodes:
         mtu: 1500
         vip:
           ip: "192.188.1.20"
-  - hostname: "talos-aoi"
-    ipAddress: "192.188.1.248"
-    installDisk: "/dev/sda"
+  - hostname: "shiro"
+    ipAddress: "192.188.1.247"
+    installDiskSelector:
+      serial: "2334E86FD858"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/831bcd3df93662159641b00d8b3bb96edc64b3911d507affe524e9c18a3a467f
+    talosImageURL: factory.talos.dev/installer/4b3cd373a192c8469e859b7a0cfbed3ecc3577c4a2d346a37b0aeff9cd17cdb0
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:df:fb:a2"
+          hardwareAddr: "d0:50:99:d5:33:98"
+        dhcp: false
+        addresses:
+          - "192.188.1.247/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "192.188.1.1"
+        mtu: 1500
+        vip:
+          ip: "192.188.1.20"
+  - hostname: "kuro"
+    ipAddress: "192.188.1.248"
+    installDiskSelector:
+      serial: "2328E6ED3BC9"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/4b3cd373a192c8469e859b7a0cfbed3ecc3577c4a2d346a37b0aeff9cd17cdb0
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "48:21:0b:5a:42:eb"
         dhcp: false
         addresses:
           - "192.188.1.248/24"
@@ -59,40 +80,7 @@ nodes:
         mtu: 1500
         vip:
           ip: "192.188.1.20"
-  - hostname: "talos-shiro"
-    ipAddress: "192.188.1.247"
-    installDisk: "/dev/sda"
-    machineSpec:
-      secureboot: false
-    talosImageURL: factory.talos.dev/installer/831bcd3df93662159641b00d8b3bb96edc64b3911d507affe524e9c18a3a467f
-    controlPlane: false
-    networkInterfaces:
-      - deviceSelector:
-          hardwareAddr: "bc:24:11:f6:18:32"
-        dhcp: false
-        addresses:
-          - "192.188.1.247/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.188.1.1"
-        mtu: 1500
-  - hostname: "talos-kuro"
-    ipAddress: "192.188.1.249"
-    installDisk: "/dev/sda"
-    machineSpec:
-      secureboot: false
-    talosImageURL: factory.talos.dev/installer/831bcd3df93662159641b00d8b3bb96edc64b3911d507affe524e9c18a3a467f
-    controlPlane: false
-    networkInterfaces:
-      - deviceSelector:
-          hardwareAddr: "bc:24:11:d6:08:28"
-        dhcp: false
-        addresses:
-          - "192.188.1.249/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.188.1.1"
-        mtu: 1500
+
 
 # Global patches
 patches:
