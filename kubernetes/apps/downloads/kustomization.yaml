@@ -8,3 +8,4 @@ resources:
   - ./prowlarr/ks.yaml
   - ./metube/ks.yaml
   - ./qbittorrent/ks.yaml
+  - ./sonarr/ks.yaml
