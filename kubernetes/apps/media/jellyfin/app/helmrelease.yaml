@@ -92,7 +92,7 @@ spec:
       data:
         type: nfs
         path: /mnt/main/media
-        server: 192.188.1.200
+        server: nas.dot-hex.xyz
         globalMounts:
           - path: /data
       transcode:
