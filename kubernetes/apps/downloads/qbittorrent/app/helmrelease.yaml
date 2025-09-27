@@ -106,7 +106,7 @@ spec:
         existingClaim: qbt-config
         advancedMounts:
           main:
-            main:
+            app:
               - path: /config
       # Configure an emptyDir to share the port-forwarding location between containers
       gluetun-data:
