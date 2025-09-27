@@ -39,11 +39,14 @@ spec:
               repository: ghcr.io/home-operations/qbittorrent
               tag: 5.0.4
             securityContext:
+              runAsUser: 2000
+              runAsGroup: 2000
+              runAsNonRoot: true
               allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
               capabilities:
                 drop:
-                  - "ALL"
-              readOnlyRootFilesystem: true
+                  - ALL
             resources:
               limits:
                 memory: 4G
