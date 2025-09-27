@@ -9,3 +9,4 @@ resources:
   - ./metube/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./sonarr/ks.yaml
+  - ./bazarr/ks.yaml
