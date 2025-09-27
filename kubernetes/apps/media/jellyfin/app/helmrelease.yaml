@@ -20,3 +20,81 @@ spec:
   dependsOn:
     - name: longhorn
       namespace: storage
+  values:
+    defaultPodOptions:
+      nodeSelector:
+        intel-gpu: "true"
+      securityContext:
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
+        fsGroupChangePolicy: "OnRootMismatch"
+        supplementalGroups:
+          - 65539
+    controllers:
+      main:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: ghcr.io/jellyfin/jellyfin
+              tag: 10.10.7@sha256:e4d1dc5374344446a3a78e43dd211247f22afba84ea2e5a13cbe1a94e1ff2141
+            env:
+              TZ: America/Los_Angeles
+              JELLYFIN_CACHE_DIR: "/config/cache"
+            resources:
+              requests:
+                cpu: 400m
+                memory: 1Gi
+              limits:
+                memory: 10Gi
+            probes:
+              liveness:
+                custom: true
+                enabled: true
+                spec:
+                  failureThreshold: 3
+                  httpGet:
+                    path: /health
+                    port: 8096
+                  initialDelaySeconds: 20
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+            securityContext:
+              allowPrivilegeEscalation: false
+
+    service:
+      app:
+        ports:
+          http:
+            port: &port 8096
+    route:
+      app:
+        hostnames:
+          - "{{ .Release.Name }}.dot-hex.xyz"
+        parentRefs:
+          - name: internal
+            namespace: kube-system
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: app
+                port: *port
+    persistence:
+      config:
+        enabled: true
+        existingClaim: jellyfin
+      cache:
+        existingClaim: jellyfin-cache
+        globalMounts:
+          - path: /config/cache
+      data:
+        type: nfs
+        path: /mnt/main/media
+        server: 192.188.1.200
+        globalMounts:
+          - path: /data
+      transcode:
+        enabled: true
+        type: emptyDir
