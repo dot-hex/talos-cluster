@@ -127,7 +127,7 @@ spec:
         path: /mnt/main/media
         advancedMounts:
           main:
-            main:
+            app:
               - path: /data/nas-media
     route:
       app:
