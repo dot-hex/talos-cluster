@@ -8,3 +8,4 @@ components:
 resources:
   - ./echo/ks.yaml
   - ./syncthing/ks.yaml
+  - ./pairdrop/ks.yaml
