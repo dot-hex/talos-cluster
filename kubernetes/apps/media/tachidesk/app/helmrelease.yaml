@@ -34,7 +34,6 @@ spec:
               DEBUG: true
               DOWNLOAD_AS_CBZ: false
               EXTENSION_REPOS: '["https://github.com/keiyoushi/extensions/tree/repo"]'
-              JAVA_TOOL_OPTIONS: -XX:+UseG1GC -XX:MaxRAMPercentage=75 -XX:+PrintFlagsFinal
               TZ: America/Los_Angeles
               FLARESOLVERR_ENABLED: true
               FLARESOLVERR_URL: http://flaresolverr.downloads.cluster.svc.local.
