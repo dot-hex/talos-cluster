@@ -30,7 +30,7 @@ spec:
           app:
             image:
               repository: ghcr.io/jberlyn/kosync-dotnet
-              tag: v1.5.1@ sha256:3fe6db8d9c628456a20c279e0299049f35e26527e38896bb35c5447a84436135
+              tag: v1.5.1@sha256:3fe6db8d9c628456a20c279e0299049f35e26527e38896bb35c5447a84436135
             env:
               ASPNETCORE_HTTP_PORTS: &port 8080
     defaultPodOptions:
