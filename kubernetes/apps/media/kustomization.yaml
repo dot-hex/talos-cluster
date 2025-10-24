@@ -6,4 +6,3 @@ components:
 resources:
   - ./tachidesk/ks.yaml
   - ./jellyfin/ks.yaml
-  - ./kosync/ks.yaml
