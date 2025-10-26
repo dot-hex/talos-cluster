@@ -75,6 +75,10 @@ spec:
                   secretKeyRef:
                     name: pia-configuration
                     key: password
+              - name: DOT_PROVIDERS
+                value: cleanbrowsing
+              - name: HEALTH_SUCESS_WAIT_DURATION
+                value: 6000s
             # Configure the container-specific securityContext
             securityContext:
               capabilities:
