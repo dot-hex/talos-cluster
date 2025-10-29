@@ -77,8 +77,6 @@ spec:
                     key: password
               - name: DOT_PROVIDERS
                 value: google
-              - name: HEALTH_SUCCESS_WAIT_DURATION
-                value: 6000s
             # Configure the container-specific securityContext
             securityContext:
               capabilities:
