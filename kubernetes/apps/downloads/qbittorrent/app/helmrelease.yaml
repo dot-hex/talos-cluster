@@ -68,8 +68,8 @@ spec:
               - name: FIREWALL_OUTBOUND_SUBNETS
                 # Allow access to k8s subnets
                 value: "10.42.0.0/16"
-              - name: BLOCK_MALICIOUS
-                value: off
+              - name: FIREWALL_DEBUG
+                value: on
               - name: BLOCK_SURVEILLANCE
                 value: on
               - name: OPENVPN_USER
