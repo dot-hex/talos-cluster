@@ -61,7 +61,7 @@ spec:
               - name: VPN_PORT_FORWARDING
                 value: on
               - name: SERVER_REGIONS
-                value: CA Montreal
+                value: CA Vancouver
                 #CA Ontario,,CA Vancouver,CA Montreal, CA Toronto, CA Vancouver,CA Ontario
               - name: FIREWALL_INPUT_PORTS
                 value: &port 8080
