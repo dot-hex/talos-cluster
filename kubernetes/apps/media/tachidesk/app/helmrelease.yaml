@@ -36,7 +36,7 @@ spec:
               EXTENSION_REPOS: '["https://github.com/keiyoushi/extensions/tree/repo"]'
               TZ: America/Los_Angeles
               FLARESOLVERR_ENABLED: true
-              FLARESOLVERR_URL: http://flaresolverr.downloads.cluster.svc.local.
+              FLARESOLVERR_URL: http://flaresolverr.downloads
             securityContext:
               allowPrivilegeEscalation: false
               capabilities:
