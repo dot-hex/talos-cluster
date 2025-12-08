@@ -17,6 +17,8 @@ kind: HelmRelease
 metadata:
   name: intel-gpu-resource-driver
 spec:
+  nodeSelector:
+    intel-gpu: "true"
   chartRef:
     kind: OCIRepository
     name: intel-gpu-resource-driver
