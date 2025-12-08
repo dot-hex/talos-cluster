@@ -24,9 +24,9 @@ spec:
     defaultPodOptions:
       nodeSelector:
         intel-gpu: "true"
-      resourceClaims:
-        - name: gpu
-          resourceClaimTemplateName: jellyfin-gpu
+      # resourceClaims:
+      #   - name: gpu
+      #     resourceClaimTemplateName: jellyfin-gpu
       securityContext:
         runAsUser: 568
         runAsGroup: 568
