@@ -33,7 +33,7 @@ spec:
               tag: v2025.12.1@sha256:f13f9b91beffd015aaa8d1dcd987d0955dcc3ffb2653d7e1c31a0a79e2a27a48
             env:
               TZ: America/Los_Angeles
-              HASS_HTTP_TRUSTED_PROXY_1: 10.42.1.0/16
+              HASS_HTTP_TRUSTED_PROXY_1: 10.42.1.159
               HASS_HTTP_TRUSTED_PROXY_2: 192.188.1.0/24
             securityContext:
               allowPrivilegeEscalation: false
