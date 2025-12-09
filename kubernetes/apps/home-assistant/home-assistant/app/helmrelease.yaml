@@ -70,12 +70,15 @@ spec:
         seccompProfile: { type: RuntimeDefault }
     service:
       app:
-        controller: home-assistant
         ports:
           http:
             port: &port 8123
           # code-server:
           #   port: 12321
+    serviceMonitor:
+      app:
+        endpoints:
+          - port: http
     route:
       app:
         hostnames:
