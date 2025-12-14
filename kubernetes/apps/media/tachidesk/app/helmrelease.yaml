@@ -32,7 +32,7 @@ spec:
               AUTO_DOWNLOAD_CHAPTERS: true
               BIND_PORT: &port 4567
               DEBUG: true
-              DOWNLOAD_AS_CBZ: false
+              DOWNLOAD_AS_CBZ: true
               EXTENSION_REPOS: '["https://github.com/keiyoushi/extensions/tree/repo"]'
               TZ: America/Los_Angeles
               FLARESOLVERR_ENABLED: true
