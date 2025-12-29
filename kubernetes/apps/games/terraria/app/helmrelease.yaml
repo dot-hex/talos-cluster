@@ -31,13 +31,14 @@ spec:
               tag: v2025.10.3.1
             env:
               TMOD_DIFFICULTY: 0
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                - ALL
     defaultPodOptions:
           automountServiceAccountToken: false
           securityContext:
-            runAsNonRoot: true
-            runAsUser: 1000
-            runAsGroup: 1000
-            fsGroup: 1000
             fsGroupChangePolicy: OnRootMismatch
             seccompProfile: {type: RuntimeDefault}
     persistence:
