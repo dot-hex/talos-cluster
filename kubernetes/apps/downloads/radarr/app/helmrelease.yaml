@@ -47,8 +47,7 @@ spec:
               RADARR__APPLICATION_URL: '{{ .Release.Name }}.dot-hex.xyz'
               TZ: America/Los_Angeles
     service:
-      main:
-        controller: main
+      app:
         ports:
           http:
             port: *port
