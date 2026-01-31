@@ -46,6 +46,14 @@ spec:
               RADARR__SERVER__PORT: &port 80
               RADARR__APPLICATION_URL: '{{ .Release.Name }}.dot-hex.xyz'
               TZ: America/Los_Angeles
+    defaultPodOptions:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
     service:
       app:
         ports:
