@@ -44,7 +44,6 @@ spec:
               RADARR__LOG__CONSOLEFORMAT: Clef
               RADARR__LOG__LEVEL: info
               RADARR__SERVER__PORT: &port 80
-              RADARR__APPLICATION_URL: '{{ .Release.Name }}.dot-hex.xyz'
               TZ: America/Los_Angeles
     defaultPodOptions:
       automountServiceAccountToken: false
