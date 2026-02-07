@@ -93,3 +93,8 @@ spec:
           - backendRefs:
               - identifier: app
                 port: *port
+    service:
+      app:
+        ports:
+          http:
+            port: *port
