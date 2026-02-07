@@ -11,3 +11,5 @@ resources:
   - ./sonarr/ks.yaml
   - ./bazarr/ks.yaml
   - ./radarr/ks.yaml
+  - ./pinchflat/ks.yaml
+  - ./qui/ks.yaml
