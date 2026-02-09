@@ -10,3 +10,4 @@ resources:
   - ./syncthing/ks.yaml
   - ./pairdrop/ks.yaml
   - ./orcaslicer/ks.yaml
+  - ./stirling-pdf/ks.yaml
