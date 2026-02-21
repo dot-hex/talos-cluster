@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: ghcr.io/stirling-tools/stirling-pdf
-              tag: 2.4.3-fat@sha256:9373243f49fe38e02308172a5f2c98d67c665d27ef7c82002cc7c61670b5c6d1
+              tag: 2.5.2-fat@sha256:670667215ef0bc9726b4cc44d7c111e1ee5b7281cd224754c01fb182dd24781b
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
