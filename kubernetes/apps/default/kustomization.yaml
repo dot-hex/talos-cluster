@@ -11,3 +11,4 @@ resources:
   - ./pairdrop/ks.yaml
   - ./orcaslicer/ks.yaml
   - ./stirling-pdf/ks.yaml
+  - ./mapi/ks.yaml
