@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: ghcr.io/stirling-tools/stirling-pdf
-              tag: 2.5.3-fat@sha256:cc9b8f0fd49f663ad8cedc26884fddec2dbbb819a0e21d265efcf8d239fbb837
+              tag: 2.7.0@sha256:ddc72cce76cb9e85df43e34115dbbacec0dd46baf607c0eecabae61e2d69087d
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
@@ -40,7 +40,6 @@ spec:
               limits:
                 memory: 2Gi
             securityContext:
-              readOnlyRootFilesystem: true
               allowPrivilegeEscalation: false
               runAsNonRoot: true
               runAsUser: 1000
