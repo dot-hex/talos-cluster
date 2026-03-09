@@ -39,14 +39,24 @@ spec:
                 memory: 500Mi
               limits:
                 memory: 2Gi
-    defaultPodOptions:
-      automountServiceAccountToken: false
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
+            securityContext:
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              runAsNonRoot: true
+              runAsUser: 1000
+              runAsGroup: 1000
+              fsGroup: 1000
+              supplementalGroups:
+                - 1000
+              capabilities:
+                drop: ["ALL"]
+            resources:
+              requests:
+                cpu: "10m"
+                memory: "512Mi"
+              limits:
+                cpu: "1"
+                memory: 2Gi
     service:
       app:
         ports:
