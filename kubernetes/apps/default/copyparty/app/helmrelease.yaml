@@ -71,7 +71,7 @@ spec:
         type: secret
         name: copyparty-config
         globalMounts:
-        - path: /cfg/
+        - path: /cfg/copyparty.conf
       tmp:
         type: emptyDir
         globalMounts:
