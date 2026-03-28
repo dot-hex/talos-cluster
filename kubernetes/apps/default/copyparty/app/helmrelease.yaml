@@ -66,6 +66,12 @@ spec:
         existingClaim: *app
         globalMounts:
           - path: /cfg/
+      copyparty:
+        enabled: true
+        type: secret
+        name: copyparty
+        globalMounts:
+        - path: /cfg/
       tmp:
         type: emptyDir
         globalMounts:
