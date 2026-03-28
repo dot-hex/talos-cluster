@@ -12,3 +12,4 @@ resources:
   - ./orcaslicer/ks.yaml
   - ./stirling-pdf/ks.yaml
   - ./mapi/ks.yaml
+  - ./code-server/ks.yaml
