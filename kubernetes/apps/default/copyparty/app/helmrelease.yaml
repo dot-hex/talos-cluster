@@ -69,7 +69,7 @@ spec:
       copyparty:
         enabled: true
         type: secret
-        name: copyparty
+        name: copyparty-config
         globalMounts:
         - path: /cfg/
       tmp:
