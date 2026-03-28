@@ -58,14 +58,11 @@ spec:
         existingClaim: code-config
         globalMounts:
           - path: /home/coder
+    service:
       app:
         ports:
           http:
             port: &port 8080
-    serviceMonitor:
-      app:
-        endpoints:
-          - port: http
     route:
       app:
         hostnames:
