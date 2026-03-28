@@ -20,7 +20,7 @@ spec:
     keepHistory: false
   values:
     controllers:
-      metube:
+      main:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
@@ -46,7 +46,6 @@ spec:
           seccompProfile: { type: RuntimeDefault }
     service:
       app:
-        controller: *app
         ports:
           http:
             port: &port 3923
