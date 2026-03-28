@@ -13,3 +13,4 @@ resources:
   - ./stirling-pdf/ks.yaml
   - ./mapi/ks.yaml
   - ./code-server/ks.yaml
+  - ./copyparty/ks.yaml
