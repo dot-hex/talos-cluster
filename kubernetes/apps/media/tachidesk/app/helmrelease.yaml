@@ -33,7 +33,6 @@ spec:
               BIND_PORT: &port 4567
               DEBUG: true
               DOWNLOAD_AS_CBZ: true
-              EXTENSION_REPOS: '["https://github.com/keiyoushi/extensions/tree/repo"]'
               TZ: America/Los_Angeles
               FLARESOLVERR_ENABLED: true
               FLARESOLVERR_URL: http://flaresolverr.downloads.svc.cluster.local:8191
