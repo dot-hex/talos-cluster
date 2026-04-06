@@ -29,16 +29,25 @@ spec:
               repository: ghcr.io/suwayomi/tachidesk
               tag: v2.1.2087@sha256:bc7164c81b810dfc2804b26243aa768ff0746348675988532dfb734f15350713
             env:
-              AUTO_DOWNLOAD_CHAPTERS: true
-              BIND_PORT: &port 4567
-              DEBUG: true
-              DOWNLOAD_AS_CBZ: true
-              TZ: America/Los_Angeles
-              FLARESOLVERR_ENABLED: true
-              FLARESOLVERR_URL: http://flaresolverr.downloads.svc.cluster.local:8191
-            envFrom:
-              - secretRef:
-                  name: tachidesk
+              - name: AUTO_DOWNLOAD_CHAPTERS
+                value: true
+              - name : BIND_PORT
+                value: &port 4567
+              - name: DEBUG
+                value: true
+              - name: DOWNLOAD_AS_CBZ
+                value: true
+              - name: TZ
+                value: America/Los_Angeles
+              - name: FLARESOLVERR_ENABLED
+                value: true
+              - name: FLARESOLVERR_URL
+                value: http://flaresolverr.downloads.svc.cluster.local:8191
+              - name: EXTENSION_REPOS
+                valueFrom:
+                  secretKeyRef:
+                    name: tachidesk
+                    key: EXTENSION_REPOS
             securityContext:
               allowPrivilegeEscalation: false
               capabilities:
