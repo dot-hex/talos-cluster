@@ -37,6 +37,9 @@ spec:
               TZ: America/Los_Angeles
               FLARESOLVERR_ENABLED: true
               FLARESOLVERR_URL: http://flaresolverr.downloads.svc.cluster.local:8191
+            envFrom:
+              - secretRef:
+                  name: tachidesk
             securityContext:
               allowPrivilegeEscalation: false
               capabilities:
