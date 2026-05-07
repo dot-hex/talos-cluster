@@ -21,16 +21,6 @@ spec:
   values:
     controllers:
       main:
-        initContainers:
-          init-fs:
-            image:
-              repository: docker.io/library/busybox
-              tag: v1.37.0@sha256:b8d1827e38a1d49cd17217efd7b07d689e4ea1744e39c7dcbb95533d175bea65
-            command:
-              - chown
-              - "1000:1000"
-              - "-R"
-              - "/data"
         containers:
           app:
             image:
