@@ -13,3 +13,4 @@ resources:
   - ./code-server/ks.yaml
   - ./copyparty/ks.yaml
   - ./thelounge/ks.yaml
+  - ./timetagger/ks.yaml
