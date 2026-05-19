@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: ghcr.io/stirling-tools/stirling-pdf
-              tag: 2.7.0@sha256:ddc72cce76cb9e85df43e34115dbbacec0dd46baf607c0eecabae61e2d69087d
+              tag: 2.10.1@sha256:950c596db26e0764f642def2fd4f9ee904ff2ac16d83fe621ff731b771d9b385
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
@@ -45,10 +45,8 @@ spec:
               runAsUser: 1000
               runAsGroup: 1000
               fsGroup: 1000
-              supplementalGroups:
-                - 1000
-              capabilities:
-                drop: ["ALL"]
+              fsGroupChangePolicy: OnRootMismatch
+              seccompProfile: {type: RuntimeDefault}
     service:
       app:
         ports:
@@ -71,9 +69,17 @@ spec:
               - identifier: app
                 port: *port
     persistence:
-      configs:
+      temporary:
         type: emptyDir
-      logs:
-        type: emptyDir
-      tessdata:
-        type: emptyDir
+        medium: Memory
+        globalMounts:
+          - path: /customFiles
+            subPath: customFiles
+          - path: /logs
+            subPath: logs
+          - path: /pipeline
+            subPath: pipeline
+          - path: /tmp
+            subPath: tmp
+          - path: /usr/share/tessdata
+            subPath: tessdata
