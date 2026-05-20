@@ -81,11 +81,11 @@ spec:
       securityContext:
         allowPrivilegeEscalation: false
         runAsNonRoot: true
-        # runAsUser: 1000
-        # runAsGroup: 1000
-        # fsGroup: 1000
-        # fsGroupChangePolicy: OnRootMismatch
-        # seccompProfile: {type: RuntimeDefault}
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: {type: RuntimeDefault}
     service:
       app:
         ports:
@@ -103,17 +103,3 @@ spec:
           - backendRefs:
               - identifier: app
                 port: *port
-    persistence:
-      data:
-        type: emptyDir
-        globalMounts:
-          - path: /var/roundcube
-      tmpfs:
-        type: emptyDir
-        globalMounts:
-          - path: /var/www/html
-            subPath: html
-          - path: /var/run
-            subPath: run
-          - path: /tmp
-            subPath: tmp
