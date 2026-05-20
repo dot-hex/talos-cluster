@@ -14,3 +14,4 @@ resources:
   - ./copyparty/ks.yaml
   - ./thelounge/ks.yaml
   - ./timetagger/ks.yaml
+  - ./roundcube/ks.yaml
