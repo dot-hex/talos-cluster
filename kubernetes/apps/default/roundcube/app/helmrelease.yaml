@@ -103,17 +103,3 @@ spec:
           - backendRefs:
               - identifier: app
                 port: *port
-    persistence:
-      data:
-        type: emptyDir
-        globalMounts:
-          - path: /var/roundcube
-      tmpfs:
-        type: emptyDir
-        globalMounts:
-          - path: /var/www/html
-            subPath: html
-          - path: /var/run
-            subPath: run
-          - path: /tmp
-            subPath: tmp
