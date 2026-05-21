@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: ghcr.io/suwayomi/tachidesk
-              tag: v2.2.2104@sha256:4e0883894f0f9b6250e8470f1f01e503c34d97c51af0b4379fdd1b6c39161dc2
+              tag: v2.2.2166@sha256:0839e707599b533e9c9160b3364396c47ad0dff9d4a8501d3cdf18013e5cdf90
             env:
               - name: AUTO_DOWNLOAD_CHAPTERS
                 value: true
