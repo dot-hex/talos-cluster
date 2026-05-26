@@ -5,3 +5,4 @@ components:
   - ../../components/common
 resources:
   - ./kube-prometheus/ks.yaml
+  - ./speedtest-exporter/ks.yaml
