@@ -45,6 +45,7 @@ spec:
               tag: 10.11.8@sha256:93227545077893cc9516f28b3adb733b67bc4691f41b6167428a2a0e3220b81c
             env:
               TZ: America/Los_Angeles
+              JELLYFIN_CACHE_DIR: "/config/cache"
             resources:
               requests:
                 cpu: 400m
@@ -89,17 +90,10 @@ spec:
       config:
         enabled: true
         existingClaim: jellyfin
-      tmpfs:
-        type: emptyDir
-        advancedMounts:
-          main:
-            app:
-              - path: /cache
-                subPath: cache
-              - path: /config/log
-                subPath: log
-              - path: /tmp
-                subPath: tmp
+      cache:
+        existingClaim: jellyfin-cache
+        globalMounts:
+          - path: /config/cache
       data:
         type: nfs
         path: /mnt/main/media
