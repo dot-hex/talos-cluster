@@ -92,7 +92,7 @@ spec:
       tmpfs:
         type: emptyDir
         advancedMounts:
-          jellyfin:
+          main:
             app:
               - path: /cache
                 subPath: cache
