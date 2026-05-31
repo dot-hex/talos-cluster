@@ -66,14 +66,16 @@ spec:
         - deployments=[*]
         - persistentvolumeclaims=[*]
       prometheus:
-        main:
-          enabled: true
-          hostnames:
-            - "prometheus.dot-hex.xyz"
-          parentRefs:
-            - name: internal
-              namespace: kube-system
-              sectionName: https
+        enabled: true
+        route:
+          main:
+            enabled: true
+            hostnames:
+              - "prometheus.dot-hex.xyz"
+            parentRefs:
+              - name: internal
+                namespace: kube-system
+                sectionName: https
         monitor:
           enabled: true
           relabelings:
