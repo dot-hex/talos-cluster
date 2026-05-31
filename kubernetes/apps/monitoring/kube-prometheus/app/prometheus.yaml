@@ -8,5 +8,5 @@ spec:
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
-      serviceMon.prom.io: true
+      serviceMon: "true"
 ---
