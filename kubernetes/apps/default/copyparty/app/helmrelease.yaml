@@ -89,3 +89,10 @@ spec:
         path: /mnt/main/manga-share
         server: nas.dot-hex.xyz
         type: nfs
+      books:
+        enabled: true
+        globalMounts:
+        - path: /w/books
+        path: /mnt/main/books
+        server: nas.dot-hex.xyz
+        type: nfs
