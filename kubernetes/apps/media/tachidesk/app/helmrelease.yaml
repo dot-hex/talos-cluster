@@ -43,7 +43,7 @@ spec:
                 value: true
               - name: FLARESOLVERR_URL
                 value: http://flaresolverr.downloads.svc.cluster.local:8191
-              - name: EXTENSION_REPOS
+              - name: EXTENSION_STORES
                 valueFrom:
                   secretKeyRef:
                     name: tachidesk
