@@ -26,7 +26,7 @@ spec:
           app:
             image:
               repository: docker.io/roundcube/roundcubemail
-              tag: 1.7.2-apache-nonroot@sha256:2ecd38ae1df2ee66f1bcfc6422c16ae9c3a6736b0a9cf37b9cc96fbdf97e1acc
+              tag: 1.7.2-apache-nonroot@sha256:bbb382cfd40ce96da0f65f0f3f8db43805f24d2db5d85ffd96f4f39229a47b49
             env:
               - name: ROUNDCUBEMAIL_DB_TYPE
                 value: sqlite
