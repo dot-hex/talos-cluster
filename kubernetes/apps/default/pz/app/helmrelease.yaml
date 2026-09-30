@@ -39,9 +39,9 @@ spec:
                 value: 1000
             securityContext:
               allowPrivilegeEscalation: false
-              capabilities:
-                drop:
-                - ALL
+              # capabilities:
+              #   drop:
+              #   - ALL
     service:
       app:
         ports:
