@@ -25,11 +25,11 @@ spec:
       namespace: network
   values:
     controllers:
-      echo:
+      main:
         strategy: RollingUpdate
         containers:
           app:
-            image: docker.io/indifferentbroccoli/projectzomboid-server-docker
+            repository: docker.io/indifferentbroccoli/projectzomboid-server-docker
             tag: v1.1.9@sha256:8e13816b92fdd3e1fac3044b8b9228b255e6deb4d28b268f93a911fbd58ca6e8
     defaultPodOptions:
       securityContext:
