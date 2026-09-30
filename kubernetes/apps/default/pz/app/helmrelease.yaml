@@ -46,16 +46,13 @@ spec:
       app:
         ports:
           player:
+            enabled: true
             port: &player 16261
-      udp:
-        controller: main
-        ports:
-          udp:
+            protocol: UDP
+          listen:
+            enabled: true
             port: &udp 16262
-    # serviceMonitor:
-    #   app:
-    #     endpoints:
-    #       - port: player
+            protocol: UDP
     route:
       app:
         hostnames:
