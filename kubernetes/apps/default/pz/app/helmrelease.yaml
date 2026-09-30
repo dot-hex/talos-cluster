@@ -47,11 +47,10 @@ spec:
         ports:
           udp:
             port: &udp 16262
-    serviceMonitor:
-      app:
-        endpoints:
-          - port: player
-          - port: udp
+    # serviceMonitor:
+    #   app:
+    #     endpoints:
+    #       - port: player
     route:
       app:
         hostnames:
