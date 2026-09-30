@@ -15,3 +15,4 @@ resources:
   - ./thelounge/ks.yaml
   - ./timetagger/ks.yaml
   - ./roundcube/ks.yaml
+  - ./pz/ks.yaml
