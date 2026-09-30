@@ -43,7 +43,7 @@ spec:
           player:
             port: &player 16261
       udp:
-        controller: app
+        controller: main
         ports:
           udp:
             port: &udp 16262
