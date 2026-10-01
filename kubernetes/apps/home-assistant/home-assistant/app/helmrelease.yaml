@@ -30,11 +30,11 @@ spec:
           app:
             image:
               repository: ghcr.io/home-operations/home-assistant
-              tag: 2026.9.3@sha256:638c4c8d62caad377e70bfa7beef75f70c9343a49aed64aad824f2cd06843c1c
+              tag: 2026.7.4@sha256:fc3c0b5f7c2ff61a81b3c84dfcc405d3ff28bfc73caf68fb5c31818515f3554e
             env:
               TZ: America/Los_Angeles
-              # HASS_HTTP_TRUSTED_PROXY_1: 10.42.0.0/24
-              # HASS_HTTP_TRUSTED_PROXY_2: 192.188.1.0/24
+              HASS_HTTP_TRUSTED_PROXY_1: 10.42.1.0/24
+              HASS_HTTP_TRUSTED_PROXY_2: 192.188.1.0/24
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
