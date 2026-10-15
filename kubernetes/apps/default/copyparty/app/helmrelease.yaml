@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: ghcr.io/9001/copyparty-ac
-              tag: 1.20.24@sha256:72bf0d1112c865ab33f9f7a0ef25e89d34535d47e76ed78f7056b14aae349ebd
+              tag: 1.20.26@sha256:7f77459160a4bf34fdca79f2965dff4f0c1d7069a3d9cdfb3632acb041dd2f6a
             env:
               TZ: Americas/Los_Angeles
             resources:
