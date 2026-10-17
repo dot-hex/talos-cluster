@@ -31,7 +31,7 @@ spec:
           app:
             image:
               repository: docker.io/indifferentbroccoli/projectzomboid-server-docker
-              tag: v1.1.9@sha256:8e13816b92fdd3e1fac3044b8b9228b255e6deb4d28b268f93a911fbd58ca6e8
+              tag: v1.2.0@sha256:0bfd0599c0cf3edf66ba40937ce3ae2a7c5de92073dc99d1c7e9a01fa581414e
             env:
               - name: PUID
                 value: 1000
