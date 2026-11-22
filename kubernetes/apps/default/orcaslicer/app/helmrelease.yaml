@@ -27,7 +27,7 @@ spec:
           app:
             image:
               repository: lscr.io/linuxserver/orcaslicer
-              tag: 2.4.2@sha256:b8806fab27725e26ddd14a24f22990bf0780bc7fdadb43e23120b9a1c16c8b88
+              tag: 2.5.2@sha256:92bce97be0359dde848b4f5e88ed6780aaabfa49e67157fd3014797458d8b765
             env:
               TZ: America/Los_Angeles
               PUID: "1000"
